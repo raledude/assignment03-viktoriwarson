@@ -29,12 +29,16 @@ jobs:
         run: docker pull rasilva1986/my-vue-app:v1
       # Start application
       - name: Start the application
-        run: docker run --name testerhotel -d -p 3000:3000 my-vue-app
+        run: docker run -d -p 3000:3000 rasilva1986/my-vue-app:v1 
       # Wait until the application is up
       - name: Wait until the application is up
         run: npx wait-on http://localhost:3000 
       # Run tests
       - name: Run tests
+        env:
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME}}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD}}
+          BASE_URL: ${{ secrets.BASE_URL}}
         run: npm run run-tests
       # Publish results
       - name: Save test results as artifacts
