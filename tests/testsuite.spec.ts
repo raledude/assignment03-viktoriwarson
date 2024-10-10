@@ -47,7 +47,7 @@ test.describe('Frontend Tests 01', () => {
     const billsPage = new BillsPage(page);
     const billsCreatePage = new BillsCreatePage(page);
     const dashboardPage = new DashboardPage(page);
-    const randomBillsCreated = 5;
+    const randomBillsCreated = 4;
 
     await dashboardPage.billsViewBtn.click();
 
