@@ -28,7 +28,7 @@ export class BillsCreatePage {
         await this.valueField.fill(randomPrice);
     }
 
-    async createRandomBills(howMany) {
+    async createRandomBills(howMany: number) {
         for (let i = 0; i < howMany; i++) {
             if (howMany > 20 || howMany < 1) {
                 console.log('Can not create more than 20 bills or less than 1');
